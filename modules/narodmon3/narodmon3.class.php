@@ -10,7 +10,7 @@
 //
 class narodmon3 extends module {
 /**
-* narodmon2
+* narodmon3
 *
 * Module class constructor
 *
