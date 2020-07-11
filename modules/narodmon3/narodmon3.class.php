@@ -1,6 +1,6 @@
 <?php
 /**
-* NarodMon.ru_2 
+* NarodMon.ru_3 
 * @package project
 * @author Wizard <sergejey@gmail.com>
 * @copyright http://majordomo.smartliving.ru/ (c)
@@ -8,7 +8,7 @@
 */
 //
 //
-class narodmon2 extends module {
+class narodmon3 extends module {
 /**
 * narodmon2
 *
@@ -16,8 +16,8 @@ class narodmon2 extends module {
 *
 * @access private
 */
-function narodmon2() {
-  $this->name="narodmon2";
+function narodmon3() {
+  $this->name="narodmon3";
   $this->title="NarodMon.ru";
   $this->module_category="<#LANG_SECTION_APPLICATIONS#>";
   $this->checkInstalled();
