@@ -9,9 +9,9 @@ $db = new mysql(DB_HOST, '', DB_USER, DB_PASSWORD, DB_NAME);
 include_once("./load_settings.php");
 include_once(DIR_MODULES . "control_modules/control_modules.class.php");
 $ctl = new control_modules();
-include_once(DIR_MODULES . 'narodmon2/narodmon2.class.php');
-$narodmon2_module = new narodmon2();
-$narodmon2_module->getConfig();
+include_once(DIR_MODULES . 'narodmon3/narodmon3.class.php');
+$narodmon3_module = new narodmon3();
+$narodmon3_module->getConfig();
 // In data
 $tmp1 = SQLSelectOne("SELECT ID FROM nm_outdata LIMIT 1");
 // Out data
@@ -28,7 +28,7 @@ while (1)
    if ((time()-$latest_check)>$checkEvery) {
     $latest_check=time();
     //echo date('Y-m-d H:i:s').' Polling devices...\n';
-    $narodmon2_module->processCycle();
+    $narodmon3_module->processCycle();
    }
    if (file_exists('./reboot') || IsSet($_GET['onetime'])){
       $db->Disconnect();
