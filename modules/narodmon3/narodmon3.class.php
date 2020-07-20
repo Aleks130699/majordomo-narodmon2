@@ -437,10 +437,20 @@ function usual(&$out) {
 		curl_setopt($ch, CURLOPT_USERAGENT, 'MajorDomo module');
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 		$reply = curl_exec($ch);
-
+		$mes = json_decode($reply, true);
+		
+		if($mes["login"]){
+			DebMes(date("Y-m-d H:i:s")." Authorization user ok - login: ".$mes["login"]." uid: ".$mes["uid"],"narodmon3");
+		}
+		
+		if($mes["error"]){
+			DebMes(date("Y-m-d H:i:s")." Authorization error: ".$mes["error"],"narodmon3");
+		}
+		
 		if(!$reply or empty($reply)) 
 		{
 			echo date("Y-m-d H:i:s")."Request: Connect error : ".$reply."\n";
+			DebMes(date("Y-m-d H:i:s")."Request: Connect error : ".$reply."\n","narodmon3");
 			return false;
 		}
 
@@ -448,6 +458,7 @@ function usual(&$out) {
 		if(!$data or !is_array($data))
 		{
 			echo date("Y-m-d H:i:s")."Request: Wrong data\n";
+			DebMes(date("Y-m-d H:i:s")."Request: Wrong data\n","narodmon3");
 			return false;
 		}
 
